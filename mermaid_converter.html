@@ -66,7 +66,6 @@ function splitNodes(str) {
 // 1行をMermaid記法に変換
 function convertLine(line) {
   // 変換ルール
-  line = line.replace(/ー/g, '---');
   line = line.replace(/＆/g, '&');
   // →を-->に変換
   line = line.replace(/→/g, '-->');
