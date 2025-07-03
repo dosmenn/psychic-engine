@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const zoomResetBtn = document.getElementById('zoom-reset-btn');
     const importMdBtn = document.getElementById('import-md-btn');
     const mdFileInput = document.getElementById('md-file-input');
+    const resetBtn = document.getElementById('reset-btn');
     
     // Link Operation Elements
     const existingLinksSelect = document.getElementById('existing-links-select');
@@ -514,6 +515,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function resetState() {
+        if (confirm('本当にすべてのノードとリンクを削除しますか？この操作は元に戻せません。')) {
+            history = [];
+            selectedTargets = [];
+            state = {
+                nodes: [],
+                links: [],
+                nodeCounter: 1,
+                linkCounter: 1,
+            };
+            updateDisplay();
+            saveToStorage();
+            showStatusMessage('すべてのデータをリセットしました。', 'success');
+            undoBtn.disabled = true;
+        }
+    }
+
     function applyZoom() {
         mermaidDiagram.style.transform = `scale(${currentZoom})`;
     }
@@ -659,6 +677,8 @@ document.addEventListener('DOMContentLoaded', () => {
             currentZoom = 1;
             applyZoom();
         });
+
+        resetBtn.addEventListener('click', resetState);
     }
 
     // --- Initial Load ---
