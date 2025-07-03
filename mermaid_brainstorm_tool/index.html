@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaidブレインストーミングツール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mermaidブレインストーミングツール</h1>
+            <div class="global-actions">
+                <button id="import-md-btn">Import from MD</button>
+                <input type="file" id="md-file-input" accept=".md,.markdown" style="display: none;">
+                <button id="undo-btn">Undo</button>
+                <button id="export-btn">Export as Markdown</button>
+                <button id="copy-code-btn">Copy Code</button>
+                <button id="new-window-btn">Open in New Window</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="left-panel">
+                <section id="node-addition-area">
+                    <h2>ノード追加</h2>
+                    <textarea id="node-input" rows="4" placeholder="ノードのテキストを1行に1つずつ入力"></textarea>
+                    <div class="action-buttons">
+                        <input type="text" id="link-label-input" placeholder="リンクラベル (オプション)">
+                        <button id="add-nodes-btn">ノードを追加</button>
+                        <button id="clear-input-btn">クリア</button>
+                    </div>
+                </section>
+
+                <section id="target-selection-area">
+                    <h2>ターゲット選択</h2>
+                    <input type="search" id="search-target-input" placeholder="IDまたはテキストで検索...">
+                    <div class="target-info">
+                        <button id="clear-selection-btn">選択をクリア</button>
+                        <span id="selection-count">選択中: 0件</span>
+                    </div>
+                    <div id="target-list" class="tag-container"></div>
+                </section>
+
+                <section id="link-operation-area">
+                    <h2>リンク操作</h2>
+                    <div class="form-group">
+                        <label for="existing-links-select">既存のリンクを選択して編集:</label>
+                        <select id="existing-links-select">
+                            <option value="">-- リンクを選択 --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="link-from-select">始点ノード:</label>
+                        <select id="link-from-select"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="link-to-select">終点ノード:</label>
+                        <select id="link-to-select"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="link-label-input-op">リンクラベル (オプション):</label>
+                        <input type="text" id="link-label-input-op" placeholder="ラベルを入力">
+                    </div>
+                    <div class="action-buttons">
+                        <button id="add-update-link-btn">追加 / 更新</button>
+                        <button id="delete-link-btn-op">削除</button>
+                    </div>
+                </section>
+
+                <section id="node-list-area">
+                    <h2 id="node-list-toggle">ノード一覧 (クリックで開閉)</h2>
+                    <ul id="nodes"></ul>
+                </section>
+            </div>
+
+            <div class="right-panel">
+                <section id="diagram-display-area">
+                    <div class="diagram-controls">
+                        <button id="zoom-in-btn">Zoom In</button>
+                        <button id="zoom-out-btn">Zoom Out</button>
+                        <button id="zoom-reset-btn">Reset Zoom</button>
+                    </div>
+                    <div id="mermaid-container">
+                        <div id="mermaid-diagram"></div>
+                    </div>
+                    <div id="status-message"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
