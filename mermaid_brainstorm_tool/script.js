@@ -533,7 +533,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function applyZoom() {
-        mermaidDiagram.style.transform = `scale(${currentZoom})`;
+        const svg = mermaidDiagram.querySelector('svg');
+        if (svg) {
+            svg.style.transform = `scale(${currentZoom})`;
+            svg.style.transformOrigin = 'top left';
+        }
     }
 
     function importFromMarkdown(markdownContent) {
