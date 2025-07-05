@@ -1,272 +1,512 @@
-/* General Body Styles */
+/* General Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 14px;
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 20px;
+    width: 100%;
+    max-width: 1800px;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-/* Header */
 header {
+    background-color: #4a5568;
+    color: white;
+    padding: 15px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 header h1 {
-    font-size: 20px;
-    color: #007bff;
     margin: 0;
+    font-size: 1.5em;
 }
 
-/* Main Layout */
+.global-actions button {
+    margin-left: 10px;
+}
+
 main {
     display: flex;
-    gap: 20px;
+    height: calc(100vh - 120px); /* Adjust based on header/footer height */
 }
 
 .left-panel {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 450px;
+    padding: 20px;
+    border-right: 1px solid #e2e8f0;
+    overflow-y: auto;
+    background-color: #f7fafc;
 }
 
 .right-panel {
-    width: 60%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Section Styles */
 section {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
 }
 
-section h2 {
-    font-size: 16px;
+h2 {
     margin-top: 0;
+    font-size: 1.2em;
+    color: #2d3748;
+    border-bottom: 2px solid #cbd5e0;
+    padding-bottom: 8px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
 }
 
-/* Buttons */
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-button:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
-}
-
-#clear-input-btn, #clear-selection-btn {
-    background-color: #6c757d;
-}
-#clear-input-btn:hover, #clear-selection-btn:hover {
-    background-color: #5a6268;
-}
-
-/* Forms */
-textarea, input[type="text"], input[type="search"] {
+/* Forms and Buttons */
+textarea, input[type="text"], input[type="search"], select {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
     border-radius: 4px;
+    font-size: 1em;
     box-sizing: border-box;
     margin-bottom: 10px;
 }
 
 textarea {
-    height: 100px;
     resize: vertical;
+}
+
+button {
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #3182ce;
+}
+
+button:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
 }
 
 .action-buttons {
     display: flex;
+    justify-content: space-between;
     gap: 10px;
-    align-items: center;
+    margin-top: 10px;
 }
 
-/* Target Selection */
+.action-buttons button {
+    flex-grow: 1;
+}
+
+#clear-input-btn, #clear-selection-btn, #delete-link-btn-op, #reset-btn {
+    background-color: #e53e3e;
+}
+
+#clear-input-btn:hover, #clear-selection-btn:hover, #delete-link-btn-op:hover, #reset-btn:hover {
+    background-color: #c53030;
+}
+
+/* Specific Areas */
+#target-selection-area .target-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#selection-count {
+    font-weight: bold;
+    color: #4a5568;
+}
+
 .tag-container {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    max-height: 200px;
-    overflow-y: auto;
-    padding: 5px;
-    border: 1px solid #eee;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
     border-radius: 4px;
+    min-height: 40px;
+    background-color: #fdfdff;
 }
 
 .tag {
-    background-color: #e9ecef;
+    background-color: #e2e8f0;
+    color: #4a5568;
     padding: 5px 10px;
     border-radius: 15px;
     cursor: pointer;
-    font-size: 12px;
-    transition: background-color 0.3s;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-}
-
-.tag:hover {
-    background-color: #ced4da;
+    transition: background-color 0.2s;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
 }
 
 .tag.selected {
-    background-color: #007bff;
+    background-color: #4299e1;
     color: white;
 }
 
-.target-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    font-size: 12px;
-}
-
-/* Node List */
-#node-list-toggle {
+.tag .remove-tag {
+    margin-left: 8px;
+    font-weight: bold;
     cursor: pointer;
 }
-#nodes {
+
+#node-list-area h2 {
+    cursor: pointer;
+}
+
+#node-list-area ul {
     list-style-type: none;
     padding: 0;
-    max-height: 200px;
+    max-height: 300px;
     overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
 }
-#nodes li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    border-bottom: 1px solid #eee;
+
+#node-list-area li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    cursor: pointer;
 }
-#nodes li:last-child {
+
+#node-list-area li:last-child {
     border-bottom: none;
 }
-#nodes .delete-node-btn {
-    background-color: #dc3545;
-    padding: 4px 8px;
-    font-size: 12px;
+
+#node-list-area li:hover {
+    background-color: #f7fafc;
 }
-#nodes .delete-node-btn:hover {
-    background-color: #c82333;
+
+#node-list-area li.selected {
+    background-color: #bee3f8;
 }
 
 /* Diagram Display */
 #diagram-display-area {
-    height: 600px;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    padding: 0;
 }
+
 .diagram-controls {
-    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
     display: flex;
     gap: 10px;
 }
+
 #mermaid-container {
     flex-grow: 1;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     overflow: auto;
-    min-height: 400px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    background-color: #ffffff;
 }
+
 #mermaid-diagram {
     transform-origin: top left;
 }
 
-/* Make links in diagram interactive */
-#mermaid-diagram .edgePaths .path:hover,
-#mermaid-diagram .edgeLabel:hover {
-    stroke: #dc3545 !important;
-    stroke-width: 2.5px !important;
+#status-message {
+    padding: 10px;
+    background-color: #fed7d7;
+    color: #c53030;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+    display: none; /* Initially hidden */
+}
+
+/* Toggle Switch */
+.toggle-switch-container {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #4299e1;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #4299e1;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.edge.selected-link path {
+    stroke: #e53e3e !important;
+    stroke-width: 3px !important;
+}
+
+.edge.selected-link .edgeLabel {
+    background-color: #fed7d7 !important;
+    color: #c53030 !important;
+    border: 1px solid #c53030;
+}
+/* 既存のstyle.cssに以下を追加してください */
+
+/* リンク選択機能のスタイル */
+#mermaid-diagram .edge {
+    pointer-events: all !important;
+}
+
+#mermaid-diagram .edge:hover {
+    opacity: 0.8;
+}
+
+#mermaid-diagram .edge[data-link-handler="true"] {
+    cursor: pointer !important;
+}
+
+/* 選択されたリンクのスタイル */
+#mermaid-diagram .edge.selected-link,
+#mermaid-diagram .edge[style*="stroke: rgb(255, 107, 107)"] {
+    stroke: #ff6b6b !important;
+    stroke-width: 3px !important;
+}
+
+#mermaid-diagram .edge.selected-link path,
+#mermaid-diagram .edge[style*="stroke: rgb(255, 107, 107)"] path {
+    stroke: #ff6b6b !important;
+    stroke-width: 3px !important;
+}
+
+/* リンクラベルのスタイル */
+#mermaid-diagram .edgeLabel,
+#mermaid-diagram .edge-label {
+    pointer-events: all !important;
     cursor: pointer;
 }
-#mermaid-diagram .edgeLabel rect:hover {
-    fill: #f8d7da !important;
+
+/* ノードクリック機能のスタイル */
+#mermaid-diagram .node,
+#mermaid-diagram .flowchart-node,
+#mermaid-diagram .nodeLabel,
+#mermaid-diagram g[data-node-handler="true"],
+#mermaid-diagram rect[data-node-handler="true"],
+#mermaid-diagram foreignObject[data-node-handler="true"] {
+    pointer-events: all !important;
+    cursor: pointer !important;
 }
 
-/* Status Messages */
-#status-message {
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 4px;
-    display: none;
-}
-.success {
-    background-color: #d4edda;
-    color: #155724;
-    display: block;
-}
-.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    display: block;
+#mermaid-diagram .node:hover,
+#mermaid-diagram .flowchart-node:hover,
+#mermaid-diagram .nodeLabel:hover,
+#mermaid-diagram g[data-node-handler="true"]:hover,
+#mermaid-diagram rect[data-node-handler="true"]:hover {
+    opacity: 0.8;
 }
 
-/* Link Editor Panel */
-.link-editor-panel {
-    margin-top: 15px;
-    padding: 15px;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    background-color: #f0f8ff;
+/* 始点ノードのスタイル（青色） - より強力なセレクター */
+#mermaid-diagram .from-node-selected,
+#mermaid-diagram .from-node-selected rect,
+#mermaid-diagram .from-node-selected path,
+#mermaid-diagram .node[style*="stroke: rgb(33, 150, 243)"],
+#mermaid-diagram .flowchart-node[style*="stroke: rgb(33, 150, 243)"],
+#mermaid-diagram rect[style*="stroke: rgb(33, 150, 243)"],
+#mermaid-diagram g[style*="stroke: rgb(33, 150, 243)"] rect {
+    stroke: #2196f3 !important;
+    stroke-width: 3px !important;
 }
 
-.link-editor-panel h4 {
-    margin-top: 0;
-    color: #007bff;
+#mermaid-diagram .from-node-selected rect,
+#mermaid-diagram rect[style*="fill: rgb(227, 242, 253)"] {
+    fill: #e3f2fd !important;
 }
 
-/* Form Groups for better spacing */
-.form-group {
-    margin-bottom: 15px;
+/* 終点ノードのスタイル（緑色） - より強力なセレクター */
+#mermaid-diagram .to-node-selected,
+#mermaid-diagram .to-node-selected rect,
+#mermaid-diagram .to-node-selected path,
+#mermaid-diagram .node[style*="stroke: rgb(76, 175, 80)"],
+#mermaid-diagram .flowchart-node[style*="stroke: rgb(76, 175, 80)"],
+#mermaid-diagram rect[style*="stroke: rgb(76, 175, 80)"],
+#mermaid-diagram g[style*="stroke: rgb(76, 175, 80)"] rect {
+    stroke: #4caf50 !important;
+    stroke-width: 3px !important;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 13px;
+#mermaid-diagram .to-node-selected rect,
+#mermaid-diagram rect[style*="fill: rgb(232, 245, 232)"] {
+    fill: #e8f5e8 !important;
 }
 
-.form-group select, .form-group input {
-    width: 100%;
+/* 選択されたリンクのコンテナスタイル */
+#selected-links-container {
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 120px;
+    overflow-y: auto;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 4px;
-    box-sizing: border-box;
+    background-color: #fafafa;
+}
+
+#selected-links-container .tag.placeholder {
+    background-color: #f5f5f5;
+    color: #757575;
+    border: 1px dashed #bdbdbd;
+}
+
+#selected-links-container .tag.count-tag {
+    background-color: #e3f2fd !important;
+    color: #1565c0 !important;
+    font-weight: bold;
+    border: 1px solid #2196f3;
+}
+
+#selected-links-container .tag.clear-all-tag {
+    background-color: #ffebee !important;
+    color: #c62828 !important;
+    cursor: pointer;
+    border: 1px solid #f44336;
+    transition: background-color 0.2s;
+}
+
+#selected-links-container .tag.clear-all-tag:hover {
+    background-color: #ffcdd2 !important;
+}
+
+#selected-links-container .tag.selected {
+    background-color: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ff9800;
+    position: relative;
+    padding-right: 24px;
+}
+
+#selected-links-container .remove-tag {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    color: #d32f2f;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+#selected-links-container .remove-tag:hover {
+    background-color: #ffcdd2;
+}
+
+/* ステータスメッセージのスタイル改善 */
+.status-message.info {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border-left: 4px solid #2196f3;
+}
+
+/* ノード一覧の削除ボタンを左寄せにする */
+#node-list-area li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#node-list-area li .node-text {
+    flex-grow: 1;
+    text-align: left;
+}
+
+#node-list-area li .delete-node-btn {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+#node-list-area li .delete-node-btn:hover {
+    background-color: #c53030;
 }
