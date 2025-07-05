@@ -31,6 +31,13 @@
                         <button id="add-nodes-btn">ノードを追加</button>
                         <button id="clear-input-btn">クリア</button>
                     </div>
+                    <div class="toggle-switch-container">
+                        <label class="switch">
+                            <input type="checkbox" id="reverse-arrow-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <span>矢印を反転</span>
+                    </div>
                 </section>
 
                 <section id="target-selection-area">
@@ -45,8 +52,16 @@
 
                 <section id="link-operation-area">
                     <h2>リンク操作</h2>
+                    <div class="toggle-switch-container">
+                        <label class="switch">
+                            <input type="checkbox" id="link-selection-mode-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <span>リンク選択モード</span>
+                    </div>
+                    <div id="selected-links-container" class="tag-container" style="display: none;"></div>
                     <div class="form-group">
-                        <label for="existing-links-select">既存のリンクを選択して編集:</label>
+                        <label for="existing-links-select">選択中のリンク:</label>
                         <select id="existing-links-select">
                             <option value="">-- リンクを選択 --</option>
                         </select>
@@ -65,7 +80,8 @@
                     </div>
                     <div class="action-buttons">
                         <button id="add-update-link-btn">追加 / 更新</button>
-                        <button id="delete-link-btn-op">削除</button>
+                        <button id="delete-selected-links-btn">選択したリンクを削除</button>
+                        <button id="reverse-selected-links-btn">選択したリンクを反転</button>
                     </div>
                 </section>
 
