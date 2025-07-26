@@ -1335,10 +1335,10 @@ document.addEventListener('DOMContentLoaded', () => {
             nodeUl.style.display = nodeUl.style.display === 'none' ? 'block' : 'none';
         });
 
-        // --- Shift Key Handler for Link Selection Mode Toggle ---
+        // --- Ctrl Key Handler for Link Selection Mode Toggle ---
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Control' && !e.repeat) {
-                // Shiftキーが押された時にリンク選択モードを切り替え
+                // Ctrlキーが押された時にリンク選択モードを切り替え
                 e.preventDefault();
                 linkSelectionModeToggle.checked = !linkSelectionModeToggle.checked;
                 
@@ -1427,7 +1427,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log('Node click handlers re-setup completed');
                 }, 150);
                 
-                showStatusMessage('リンク選択モードがオフになりました。ノードをクリックしてリンクを作成できます。(Shiftキーで切り替え)', 'info');
+                showStatusMessage('リンク選択モードがオフになりました。ノードをクリックしてリンクを作成できます。(Ctrlキーで切り替え)', 'info');
             }
         });
 
