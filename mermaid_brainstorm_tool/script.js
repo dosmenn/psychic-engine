@@ -1337,7 +1337,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- Shift Key Handler for Link Selection Mode Toggle ---
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Shift' && !e.repeat) {
+            if (e.key === 'Control' && !e.repeat) {
                 // Shiftキーが押された時にリンク選択モードを切り替え
                 e.preventDefault();
                 linkSelectionModeToggle.checked = !linkSelectionModeToggle.checked;
@@ -1396,7 +1396,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
                 
-                showStatusMessage('リンク選択モードがオンになりました。図上のリンクをクリックして複数選択できます。(Shiftキーで切り替え)', 'info');
+                showStatusMessage('リンク選択モードがオンになりました。図上のリンクをクリックして複数選択できます。(Ctrlキーで切り替え)', 'info');
             } else {
                 // リンク選択モードをオフにする
                 console.log('Turning off link selection mode');
